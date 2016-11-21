@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#00000000"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:id="@+id/tabiconcontainer"
+        android:orientation="horizontal"
+        android:layout_alignBottom="@+id/btn_plus"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/white">
+
+        <ImageButton
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/home"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="2dp"
+            android:layout_weight="0.2"
+            android:background="@color/white"
+            android:onClick="onClickHomeButton" />
+
+        <ImageButton
+            android:layout_width="0dp"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="2dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.2"
+            android:src="@drawable/discover"
+            android:background="@color/white"
+            android:onClick="onClickAddFriendsButton" />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.2"
+            android:background="#00000000"/>
+
+        <ImageButton
+            android:layout_width="0dp"
+            android:layout_weight="0.2"
+            android:layout_gravity="bottom"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="2dp"
+            android:src="@drawable/notification"
+            android:background="@color/white"
+            android:onClick="onClickNotificationButton"/>
+
+        <ImageButton
+            android:layout_width="0dp"
+            android:layout_gravity="bottom"
+            android:layout_weight="0.2"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="2dp"
+            android:src="@drawable/profile"
+            android:background="@color/white"
+            android:onClick="onClickMyProfileButton" />
+    </LinearLayout>
+    <View
+        android:layout_above="@+id/tabiconcontainer"
+        android:background="@color/gainsboro"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+    <ImageButton android:id="@+id/btn_plus"
+        android:layout_width="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content"
+        android:src="@drawable/post_button"
+        android:background="#00000000"
+        android:onClick="onClickPlusButton"/>
+</RelativeLayout>

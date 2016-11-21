@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">PetOye</string>
+    <string name="creat_account_str">Create an Account</string>
+    <string name="login_str">Login</string>
+    <string name="title_activity_signup_signin">PetOye</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

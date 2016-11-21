@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.app.android.petoye.SignupSigninActivity">
+    <!-- header-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="#53d3e3"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="PetOye"
+            android:textSize="32sp"
+            android:id="@+id/heading"
+            android:textColor="#FFFFFF"
+            android:layout_marginTop="7dp"/>
+    </LinearLayout>
+    <FrameLayout
+        android:id="@+id/container_signup_and_signin"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="10dp"/>
+</LinearLayout>
