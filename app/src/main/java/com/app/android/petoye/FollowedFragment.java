@@ -2,15 +2,28 @@ package com.app.android.petoye;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.NetworkResponse;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+
+import org.json.JSONObject;
+
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class FollowedFragment extends Fragment {
 
@@ -23,12 +36,6 @@ public class FollowedFragment extends Fragment {
 
     public FollowedFragment() {
     }
-
-    public static FollowedFragment newInstance() {
-        FollowedFragment fragment = new FollowedFragment();
-        return fragment;
-    }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -45,7 +52,65 @@ public class FollowedFragment extends Fragment {
         list_followed_feeds = (ListView) rootView.findViewById(R.id.list_feeds);
         list_followed_feeds.setAdapter(adapter);
 
-        // new DownloadFollowedFeeds().execute();
+        new DownloadFollowedFeeds().execute();
         return rootView;
+    }
+    public class DownloadFollowedFeeds extends AsyncTask<Void, Void,Void> {
+
+        @Override
+        protected Void doInBackground(Void... params) {
+            try {
+
+                //String url = "http://api.petoye.com/conversations/"+globalVariable.getUid()+"/all";
+                String url = "http://api.petoye.com//feeds/1/followedfeeds";
+                JsonObjectRequest jsObjRequest = new JsonObjectRequest(Request.Method.GET, url, null,
+                        new Response.Listener<JSONObject>() {
+
+                            @Override
+                            public void onResponse(JSONObject response) {
+
+                                Log.i("TAG", response.toString());
+                                try {
+                                    arrayOfFeeds = Feed.fromJson(response.getJSONArray("feeds"));
+                                    adapter = new FeedAdapter(thisActivityContext,arrayOfFeeds);
+                                    list_followed_feeds.setAdapter(adapter);
+                                } catch (Exception e)
+                                {
+                                }
+
+                            }
+                        },
+                        new Response.ErrorListener() {
+                            @Override
+                            public void onErrorResponse(VolleyError error) {
+                                NetworkResponse networkResponse = error.networkResponse;
+                                if (networkResponse != null && networkResponse.statusCode == 422) {
+                                    Log.i("TAG", networkResponse.headers.toString());
+
+                                }
+                            }
+                        }) {
+                    @Override
+                    public Map<String, String> getHeaders() throws AuthFailureError {
+                        HashMap<String, String> headers = new HashMap<String, String>();
+                        headers.put("Content-Type", "application/json; charset=utf-8");
+                        //  headers.put("User-agent", "My useragent");
+                        return headers;
+                    }
+
+                };
+                // Access the RequestQueue through your singleton class.
+                MySingleton.getInstance(thisActivityContext).addToRequestQueue(jsObjRequest);
+
+            } catch (Exception e) {
+            }
+
+            return null;
+        }
+
+        protected void onPostExecute(Void result) {
+            super.onPostExecute(result);
+            Log.i("TAG", "in....");
+        }
     }
 }

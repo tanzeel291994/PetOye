@@ -6,9 +6,24 @@ import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
+
+import com.android.volley.AuthFailureError;
+import com.android.volley.NetworkResponse;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Home extends Fragment {
     private SectionsPagerAdapter mSectionsPagerAdapter;
@@ -19,8 +34,6 @@ public class Home extends Fragment {
 
     public static Home newInstance(String param1, String param2) {
         Home fragment = new Home();
-        Bundle args = new Bundle();
-
         return fragment;
     }
 
@@ -34,31 +47,13 @@ public class Home extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view=inflater.inflate(R.layout.fragment_home, container, false);
-        // Inflate the layout for this fragment
-        // Create the adapter that will return a fragment for each of the three
-        // primary sections of the activity.
         mSectionsPagerAdapter = new SectionsPagerAdapter(getFragmentManager());
-
-        // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) view.findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
-
         TabLayout tabLayout = (TabLayout) view.findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
         return view;
     }
 
-    public void feedsDownload()
-    {
-
-    }
-    public void likeFeeds()
-    {
-
-    }
-    public void commentFeeds()
-    {
-
-    }
 
 }
