@@ -9,7 +9,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AlphaAnimation;
 import android.widget.ArrayAdapter;
+import android.widget.FrameLayout;
 import android.widget.ListView;
 
 import com.android.volley.AuthFailureError;
@@ -27,6 +29,9 @@ import java.util.Map;
 
 public class FollowedFragment extends Fragment {
 
+
+
+View progressOverlay;
     ListView list_followed_feeds;
     ArrayAdapter adapter;
     ArrayList<Feed> arrayOfFeeds;
@@ -41,7 +46,7 @@ public class FollowedFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         final View rootView = inflater.inflate(R.layout.feeds_list, container, false);
-
+progressOverlay= rootView.findViewById(R.id.progress_overlay);
         arrayOfFeeds = new ArrayList<Feed>();
         //globalClass=(GlobalClass)getContext();
         //uid=globalClass.getUid();
@@ -62,6 +67,7 @@ public class FollowedFragment extends Fragment {
             try {
 
                 //String url = "http://api.petoye.com/conversations/"+globalVariable.getUid()+"/all";
+                Util.animateView(progressOverlay, View.VISIBLE, 0.4f, 200);
                 String url = "http://api.petoye.com//feeds/1/followedfeeds";
                 JsonObjectRequest jsObjRequest = new JsonObjectRequest(Request.Method.GET, url, null,
                         new Response.Listener<JSONObject>() {
@@ -71,9 +77,11 @@ public class FollowedFragment extends Fragment {
 
                                 Log.i("TAG", response.toString());
                                 try {
+
                                     arrayOfFeeds = Feed.fromJson(response.getJSONArray("feeds"));
                                     adapter = new FeedAdapter(thisActivityContext,arrayOfFeeds);
                                     list_followed_feeds.setAdapter(adapter);
+                                    Util.animateView(progressOverlay, View.GONE, 0, 200);
                                 } catch (Exception e)
                                 {
                                 }
