@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.app.android.petoye.ProfileFragment">
+</FrameLayout>-->
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    >
+<!--<LinearLayout
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.app.android.petoye.ProfileFragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+-->
+    <!-- Your Scrollable View
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" >-->
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/profile_header"
+        app:layout_collapseMode="pin">
+
+        <!-- === ===== == == Cover photo ===    =   ==  = -->
+        <ImageView android:id="@+id/profilecoverdisplay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:scaleType="fitStart"
+            android:layout_alignParentTop="true"
+            android:src="@drawable/testimage1" />
+        <LinearLayout android:id="@+id/user_info"
+            android:weightSum="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/profilecoverdisplay">
+            <android.support.v4.widget.Space
+                android:layout_width="100dp"
+                android:layout_height="wrap_content" />
+            <LinearLayout   android:id="@+id/usernamentype"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="center_vertical"
+                android:layout_margin="5dp">
+                <TextView   android:id="@+id/username"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textSize="18dp"
+                    android:text="Ameya Vichare" />
+                <TextView   android:id="@+id/user_category"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textSize="12dp"
+                    android:text="Pet Owner - Pug" />
+            </LinearLayout>
+        </LinearLayout>
+        <com.github.siyamed.shapeimageview.CircularImageView
+            android:id="@+id/img_user"
+            android:src="@drawable/testimage2"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/user_info"
+            android:scaleType="fitStart"
+            android:adjustViewBounds="true"
+            app:siSquare="true"
+            />
+
+        <LinearLayout android:id="@+id/count_display"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/user_info"
+            android:gravity="center"
+            android:weightSum="1"
+            android:orientation="horizontal">
+            <!-- posts count -->
+            <LinearLayout android:id="@+id/ll_post_count"
+                android:layout_width="wrap_content"
+                android:layout_weight="0.2"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center_horizontal"
+                android:layout_margin="5dp">
+                <TextView   android:id="@+id/post_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textSize="12dp"
+                    android:text="625" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textSize="12dp"
+                    android:text="Posts" />
+            </LinearLayout>
+            <!-- followers count -->
+            <LinearLayout android:id="@+id/ll_followers_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="0.2"
+                android:gravity="center_horizontal"
+                android:layout_margin="5dp">
+                <TextView   android:id="@+id/followers_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textSize="12dp"
+                    android:text="625" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textSize="12dp"
+                    android:text="Followers" />
+            </LinearLayout>
+            <!-- followings count -->
+            <LinearLayout android:id="@+id/ll_followings_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="0.2"
+                android:gravity="center_horizontal"
+                android:layout_margin="5dp">
+                <TextView   android:id="@+id/followings_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textSize="12dp"
+                    android:text="625" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textSize="12dp"
+                    android:text="Following" />
+            </LinearLayout>
+            <LinearLayout   android:id="@+id/follomsgslot"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="0.2"
+                android:layout_below="@id/user_info"
+                android:layout_alignParentRight="true"
+                android:gravity="center"    >
+                <ImageButton android:id="@+id/btn_follow"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:src="@drawable/follow_button"
+                    android:background="@null"
+                    android:layout_marginBottom="5dp"
+                    android:onClick="onClickFollowButton" />
+                <ImageButton android:id="@+id/btn_message"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:background="@null"
+                    android:layout_margin="5dp"
+                    android:src="@drawable/message_button"
+                    android:onClick="onClickFollowButton" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </RelativeLayout>
+        </android.support.design.widget.CollapsingToolbarLayout>
+
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tabs_profile"
+            style="@style/TabNameStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            app:tabTextColor="@color/medium_turquoise"
+            app:tabGravity="fill"
+            app:tabIndicatorColor="@color/verdigris"
+            app:tabSelectedTextColor="@color/verdigris"
+            android:layout_below="@id/count_display"
+            app:tabMode="fixed" />
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/container_profile"
+        android:layout_width="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:layout_height="fill_parent"/>
+<!--</LinearLayout>-->
+    </android.support.design.widget.CoordinatorLayout>

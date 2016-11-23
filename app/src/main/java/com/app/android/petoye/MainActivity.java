@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 // Set a toolbar to replace the action bar.
-       Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+     Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         TextView txt = (TextView)findViewById(R.id.toolbar_title);
         displayMetrics =getResources().getDisplayMetrics();
         Typeface custom_font = Typeface.createFromAsset(getAssets(),"fonts/NoteworthyLight.ttf");
@@ -30,9 +30,11 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        Home home = new Home();
-        fragmentTransaction.add(R.id.main_fragment_container,home,"home");
+       // Home home = new Home();
+        ProfileFragment profileFragment=new ProfileFragment();
+        fragmentTransaction.add(R.id.main_fragment_container,profileFragment,"home");
         fragmentTransaction.commit();
+
 
     }
 
