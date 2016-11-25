@@ -36,8 +36,7 @@ public class NearbyPetsFragment extends Fragment {
 
         adapter = new FeedAdapter(this.getActivity(), arrayOfFeeds);
 
-        // arrayOfFeeds.add(new Feed("Kirti Karande","2 hours ago","Such a cute ..... I dont know what to call it. ;)","208 Likes 300 Comments"));
-        // arrayOfFeeds.add(new Feed("Kirti Karande","2 hours ago","Such a cute ..... I dont know what to call it. ;)","208 Likes 300 Comments"));
+
 
         list_nearby_pets_feeds = (ListView) rootView.findViewById(R.id.list_feeds);
         list_nearby_pets_feeds.setAdapter(adapter);

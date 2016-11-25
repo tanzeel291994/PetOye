@@ -14,6 +14,7 @@
         android:background="@color/white">
 
         <ImageButton
+            android:id="@+id/home_btn"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:src="@drawable/home1"
@@ -21,9 +22,10 @@
             android:layout_marginBottom="2dp"
             android:layout_weight="0.2"
             android:background="@color/white"
-            android:onClick="onClickHomeButton" />
+            android:onClick="onClickHome" />
 
         <ImageButton
+            android:id="@+id/discover_btn"
             android:layout_width="0dp"
             android:layout_gravity="bottom"
             android:layout_marginBottom="2dp"
@@ -31,7 +33,7 @@
             android:layout_weight="0.2"
             android:src="@drawable/discover"
             android:background="@color/white"
-            android:onClick="onClickAddFriendsButton" />
+            android:onClick="onClickDiscover" />
 
         <ImageView
             android:layout_width="0dp"
@@ -41,6 +43,7 @@
             android:background="#00000000"/>
 
         <ImageButton
+            android:id="@+id/notification_btn"
             android:layout_width="0dp"
             android:layout_weight="0.2"
             android:layout_gravity="bottom"
@@ -48,9 +51,10 @@
             android:layout_marginBottom="2dp"
             android:src="@drawable/notification"
             android:background="@color/white"
-            android:onClick="onClickNotificationButton"/>
+            android:onClick="onClickNotification"/>
 
         <ImageButton
+            android:id="@+id/profile_btn"
             android:layout_width="0dp"
             android:layout_gravity="bottom"
             android:layout_weight="0.2"
@@ -58,7 +62,7 @@
             android:layout_marginBottom="2dp"
             android:src="@drawable/profile"
             android:background="@color/white"
-            android:onClick="onClickMyProfileButton" />
+            android:onClick="onClickMyProfile" />
     </LinearLayout>
     <View
         android:layout_above="@+id/tabiconcontainer"

@@ -48,6 +48,7 @@ View progressOverlay;
         final View rootView = inflater.inflate(R.layout.feeds_list, container, false);
 progressOverlay= rootView.findViewById(R.id.progress_overlay);
         arrayOfFeeds = new ArrayList<Feed>();
+        Log.i("tag","in fedds ");
         //globalClass=(GlobalClass)getContext();
         //uid=globalClass.getUid();
         thisActivityContext = getContext();
@@ -67,6 +68,7 @@ progressOverlay= rootView.findViewById(R.id.progress_overlay);
             try {
 
                 //String url = "http://api.petoye.com/conversations/"+globalVariable.getUid()+"/all";
+                Log.i("tag","in background");
                 Util.animateView(progressOverlay, View.VISIBLE, 0.4f, 200);
                 String url = "http://api.petoye.com//feeds/1/followedfeeds";
                 JsonObjectRequest jsObjRequest = new JsonObjectRequest(Request.Method.GET, url, null,

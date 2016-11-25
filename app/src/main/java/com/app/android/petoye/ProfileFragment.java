@@ -37,7 +37,7 @@ public class ProfileFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view= inflater.inflate(R.layout.fragment_profile, container, false);
-        pSectionsPagerAdapter = new ProfileSectionsPagerAdapter(getFragmentManager());
+        pSectionsPagerAdapter = new ProfileSectionsPagerAdapter(getChildFragmentManager());
         mViewPager = (ViewPager) view.findViewById(R.id.container_profile);
         mViewPager.setAdapter(pSectionsPagerAdapter);
         TabLayout tabLayout = (TabLayout) view.findViewById(R.id.tabs_profile);
