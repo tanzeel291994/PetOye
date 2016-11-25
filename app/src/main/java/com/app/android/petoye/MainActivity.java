@@ -47,9 +47,9 @@ public class MainActivity extends AppCompatActivity {
 
         setSupportActionBar(toolbar);
          fragmentManager = getSupportFragmentManager();
-        fragmentTransaction = fragmentManager.beginTransaction();
-         home = new Home();
+        home = new Home();
          profile = new ProfileFragment();
+        fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.add(R.id.main_fragment_container,home,"home");
         fragmentTransaction.commit();
 
@@ -58,14 +58,14 @@ public class MainActivity extends AppCompatActivity {
     public void onClickDiscover(View view)
     {
         if(whichButtonChecked!=discover_btn)
-            whichButtonChecked.setColorFilter(Color.parseColor("#D8D8D8"));
+            whichButtonChecked.clearColorFilter();
         discover_btn.setColorFilter(Color.parseColor("#59c3cc"));
         whichButtonChecked=discover_btn;
     }
     public void onClickHome(View view)
     {
         if(whichButtonChecked!=home_btn)
-            whichButtonChecked.setColorFilter(Color.parseColor("#D8D8D8"));
+            whichButtonChecked.clearColorFilter();
         home_btn.setColorFilter(Color.parseColor("#59c3cc"));
         whichButtonChecked=home_btn;
 
@@ -81,14 +81,14 @@ public class MainActivity extends AppCompatActivity {
     public void onClickNotification(View view)
     {
         if(whichButtonChecked!=notification_btn)
-            whichButtonChecked.setColorFilter(Color.parseColor("#D8D8D8"));
+            whichButtonChecked.clearColorFilter();
         notification_btn.setColorFilter(Color.parseColor("#59c3cc"));
         whichButtonChecked=notification_btn;
     }
     public void onClickMyProfile(View view)
     {
         if(whichButtonChecked != myProfile_btn)
-            whichButtonChecked.setColorFilter(Color.parseColor("#D8D8D8"));
+            whichButtonChecked.clearColorFilter();
         myProfile_btn.setColorFilter(Color.parseColor("#59c3cc"));
         whichButtonChecked=myProfile_btn;
 
