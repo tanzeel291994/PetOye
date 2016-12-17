@@ -36,16 +36,18 @@ public class MainActivity extends AppCompatActivity {
         notification_btn=(ImageButton)findViewById(R.id.notification_btn) ;
         plus_btn=(ImageButton)findViewById(R.id.btn_plus) ;
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+       Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_t);
+        toolbar.setNavigationIcon(R.drawable.menu);
          txt_action_bar = (TextView)findViewById(R.id.toolbar_title);
         displayMetrics = getResources().getDisplayMetrics();
         Typeface custom_font = Typeface.createFromAsset(getAssets(),"fonts/NoteworthyLight.ttf");
         txt_action_bar.setTypeface(custom_font);
-       // toolbar.setNavigationIcon(R.drawable.m);
+
         whichButtonChecked=home_btn;
         home_btn.setColorFilter(Color.parseColor("#59c3cc"));
 
-        setSupportActionBar(toolbar);
+        //setSupportActionBar(toolbar);
+
          fragmentManager = getSupportFragmentManager();
         home = new Home();
          profile = new ProfileFragment();

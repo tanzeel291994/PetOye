@@ -27,13 +27,13 @@
             android:layout_weight="0.7"
             android:layout_height="wrap_content"  >
             <TextView  android:id="@+id/username"
-                android:text="Ameya Vichare"
                 android:layout_margin="2dp"
                 android:clickable="true"
+                android:textSize="20sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"  />
             <TextView  android:id="@+id/timestamp"
-                android:text="2 Hours ago"
+               android:textSize="10sp"
                 android:layout_margin="2dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"  />
@@ -86,7 +86,7 @@
         <ImageButton  android:id="@+id/btn_comments_feed"
             android:layout_height="wrap_content"
             android:layout_width="0dp"
-            android:src="@drawable/comment"
+            android:src="@drawable/comment_btn"
             android:background="@null"
             android:layout_weight="1"
             android:drawablePadding="10dp"

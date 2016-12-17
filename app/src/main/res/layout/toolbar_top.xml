@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.Toolbar android:id="@+id/toolbar"
+<android.support.v7.widget.Toolbar android:id="@+id/toolbar_t"
     android:minHeight="?attr/actionBarSize"
     android:background="@color/medium_turquoise"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:android="http://schemas.android.com/apk/res/android">
+
     <TextView
         android:id="@+id/toolbar_title"
         android:layout_width="wrap_content"
